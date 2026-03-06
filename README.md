@@ -50,7 +50,7 @@ This project demonstrates a **custom React hook (`useFetch`)** for fetching data
 - Implemented CSS spinner for better user experience during loading.
 
 ## Deployment
-- Deployed on Netlify: [Your Netlify Link](#)
+- Deployed on Netlify: [https://assignment-5-fullstack.vercel.app/](#) (Wait for at least 10 seconds for app to load)
 - GitHub Repository: [https://github.com/Ishita282/Assignment-5](#)
 
 ## Future Improvements
