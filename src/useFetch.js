@@ -1,29 +1,29 @@
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect } from "react";
 
 function useFetch(url) {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  const fetchData = useCallback(() => {
-    setLoading(true);
-    setError(null);
-
-    fetch(url)
-      .then((res) => res.json())
-      .then((json) => {
-        setData(json);
-        setLoading(false);
-      })
-      .catch((err) => {
-        setError(err);
-        setLoading(false);
-      });
-  }, [url]);
-
   useEffect(() => {
+    const fetchData = async () => {
+      try {
+        setLoading(true);
+        setError(null);
+
+        const res = await fetch(url);
+        const json = await res.json();
+
+        setData(json);
+      } catch (err) {
+        setError(err);
+      } finally {
+        setLoading(false);
+      }
+    };
+
     fetchData();
-  }, [fetchData]);
+  }, [url]);
 
   return { data, loading, error };
 }
